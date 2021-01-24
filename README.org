@@ -1,0 +1,39 @@
+* Veracious lambda
+Make ~λ~ behave like ~lambda~.
+
+** What is it?
+It's a small library which extends the syntax by providing a
+reader-macro for λ character. It makes the reader treat ~λ~ as a
+shorthand for ~lambda~ in the code. Precautions taken to treat only
+symbol with this exact name to undergo transformation, so you can rest
+assured that your strings stay unchanged.
+
+** Examples
+#+BEGIN_SRC lisp
+
+#+END_SRC
+** How to enable?
+
+1a. Copy (or symlink) the directory with the ~veracious-lambda~ to
+~~/quicklisp/local-projects~, then type ~(ql:register-local-projects)~
+in the REPL.
+
+1b. Just copy the files into your project.
+
+2. Use ~:around-compile~ asdf defsystem attribute:
+#+BEGIN_SRC lisp
+(asdf:defsystem :your-system
+  :license "Your License of Choice"
+  :depends-on (:<...>
+               :objective-cl)
+  :around-compile (lambda (next)
+                    ;; uiop:symbol-call is needed because objective-cl system
+                    ;; is not yet loaded by the time the defsystem form is read,
+                    ;; so the package also doesn't exists, which causes an error
+                    (uiop:symbol-call '#:veracious-lambda '#:enable)
+                    (unwind-protect (funcall next)
+                      (uiop:symbol-call '#:veracious-lambda '#:disable)))
+  :components
+  ((:file "packages")
+    <...>
+#+END_SRC
