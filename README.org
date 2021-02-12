@@ -33,7 +33,7 @@ SOME-SYMBOL-WITH-Λ-IN-NAME
 ** How to enable?
 
 1a. Copy (or symlink) the directory with the ~veracious-lambda~ to
-~~/quicklisp/local-projects~, then type ~(ql:register-local-projects)~
+=~/quicklisp/local-projects=, then type ~(ql:register-local-projects)~
 in the REPL.
 
 1b. Just copy the files into your project.
