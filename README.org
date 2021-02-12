@@ -34,7 +34,8 @@ SOME-SYMBOL-WITH-Λ-IN-NAME
 
 1a. Copy (or symlink) the directory with the ~veracious-lambda~ to
 =~/quicklisp/local-projects=, then type ~(ql:register-local-projects)~
-in the REPL.
+in the REPL. After that, the system may be loaded via ql as usual:
+~(ql:quickload :veracious-lambda)~
 
 1b. Just copy the files into your project.
 
