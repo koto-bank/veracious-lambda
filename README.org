@@ -10,7 +10,25 @@ assured that your strings stay unchanged.
 
 ** Examples
 #+BEGIN_SRC lisp
-
+CL-USER> (let ((add-10 (λ (num) (+ 10 num))))
+           (funcall add-10 10))
+20 (5 bits, #x14, #o24, #b10100)
+CL-USER> ((λ (a b) (+ a b)) 1 2)
+3 (2 bits, #x3, #o3, #b11)
+CL-USER> ((λ (λ) (+ λ 10)) 10)
+20 (5 bits, #x14, #o24, #b10100)
+CL-USER> (symbol-name 'λ-calculus)
+"Λ-CALCULUS"
+CL-USER> (symbol-name 'λ)
+"LAMBDA"
+CL-USER> "λ"
+"λ"
+CL-USER> 'λ
+LAMBDA
+CL-USER> 'λλ
+ΛΛ
+CL-USER> 'some-symbol-with-λ-in-name
+SOME-SYMBOL-WITH-Λ-IN-NAME
 #+END_SRC
 ** How to enable?
 
