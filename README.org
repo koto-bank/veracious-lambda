@@ -25,7 +25,7 @@ in the REPL.
 (asdf:defsystem :your-system
   :license "Your License of Choice"
   :depends-on (:<...>
-               :objective-cl)
+               :veracious-lambda)
   :around-compile (lambda (next)
                     ;; uiop:symbol-call is needed because objective-cl system
                     ;; is not yet loaded by the time the defsystem form is read,
