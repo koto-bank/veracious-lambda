@@ -14,7 +14,8 @@
 (defun lambda-reader (stream char)
   (declare (ignore char))
   (let ((next (peek-char nil stream nil nil t)))
-    (if (or (whitespacep next)
+    (if (or (null next)
+            (whitespacep next)
             (and (get-macro-character next)
                  (not (char= next #\λ))))
       'lambda
